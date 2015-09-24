@@ -1,5 +1,7 @@
 package cn.tyrone.security.core.taglib;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
@@ -23,6 +25,8 @@ public class RequestPermisstionTag extends TagSupport {
 	@Override
 	public int doStartTag() throws JspException {
 		boolean result = false;
+		HttpServletRequest request = (HttpServletRequest)pageContext.getRequest();
+		
 		return result ? EVAL_BODY_INCLUDE : SKIP_BODY;
 	}
 	
